@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mealie
+  name: mealie
+  # add namespace
+  namespace: mealie
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mealie
+  # since mealie has only 1 replica, strategy has been removed 
+  template:
+    metadata:
+      labels:
+        app: mealie
+    spec:
+      containers:
+      # if image was simply nginx, it would be pulled from docker hub
+      # we prefer to get this tag from mealie official docs 
+      - image: ghcr.io/mealie-recipes/mealie:v1.2.0
+        name: mealie
+        # we must add ports to expose the container
+        ports:
+          # use kubectl port-forward to a simple forward to a host port
+          - containerPort: 9000
+# deleted resources and status        
