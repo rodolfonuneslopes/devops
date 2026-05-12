@@ -1,0 +1,7 @@
+# This is the auto-generated file when executing `kubectl create namespace mealie --dry-run=client -o yaml > deployment.yaml`
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mealie
+spec: {}
+status: {}
