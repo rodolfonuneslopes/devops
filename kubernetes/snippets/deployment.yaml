@@ -1,0 +1,23 @@
+# This is the auto-generated file when executing `kubectl create deploy nginx-replicated-twice --image=nginx --replicas=2 --dry-run=client -o yaml > deployment.yaml`
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-replicated-twice
+  name: nginx-replicated-twice
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-replicated-twice
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: nginx-replicated-twice
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}
